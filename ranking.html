@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranking - Quiz geografía</title>
+    <link rel="icon" type="image/png" href="tierra.png">
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+
+<body class="h-screen min-h-[600px] flex items-center bg-gradient-to-r from-orange-300 to-rose-300">
+    <main class="bg-white w-2/3 md:max-w-md mx-auto rounded-lg shadow-xl">
+        <header class="flex items-center justify-between py-4 px-6 border-b">
+            <h1 class="font-bold text-xl text-slate-500">Puntuación de tu partida actual</h1>
+        </header>
+
+        <section class="p-6">
+            <h2 id="textScore" class="font-bold text-2xl text-center">
+            </h2>
+        </section>
+
+        <footer class="flex items-center justify-center px-6 py-4 border-t">
+            <button onclick="restartQuiz()"
+                class="flex disabled:bg-orange-100 bg-rose-400 text-white px-4 py-2 rounded-lg hover:bg-rose-500 transition-all">
+                Volver a hacer el quiz
+            </button>
+        </footer>
+    </main>
+
+    <script src="ranking.js"></script>
+</body>
+
+</html>

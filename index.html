@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz geografía</title>
+    <link rel="icon" type="image/png" href="tierra.png">
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+
+<body class="h-screen min-h-[600px] flex items-center bg-gradient-to-r from-orange-300 to-rose-300">
+    <main class="bg-white w-2/3 md:max-w-md mx-auto rounded-lg shadow-xl">
+        <section class="p-6">
+            <h1 class="m-3 font-semibold text-xl text-center">
+                Contesta correctamente las siguientes preguntas de geografía.
+            </h1>
+            <h1 class="text-center text-slate-500">
+                Cuanto más rápido contestes cada pregunta más puntos sumarás.
+            </h1>
+        </section>
+
+        <footer class="flex items-center justify-center px-6 py-4 border-t">
+            <button onclick="startQuiz()"
+                class="flex disabled:bg-orange-100 bg-rose-400 text-white px-4 py-2 rounded-lg hover:bg-rose-500 transition-all">
+                Empezar Quiz
+            </button>
+        </footer>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

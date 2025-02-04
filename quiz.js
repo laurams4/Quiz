@@ -32,7 +32,8 @@ let currentQuestion = 0;
 // Variable para controlar si se ha respondido la pregunta
 let isAnswered = false;
 // Variable con score total deñ quiz
-let score = 0;
+// let score = 0;
+let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
 // Variables de tiempo para la cuenta atrás
 const totalTime = 30;
 let timer = 30;

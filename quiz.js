@@ -1,5 +1,5 @@
 // Creamos el array de objetos con las preguntas y las respuestas
-const questions = [
+/*const questions = [
     {
         question: "1.¿Cuál es la capital de España?",
         answers: ["Madrid", "Barcelona", "Valencia", "Sevilla"],
@@ -25,7 +25,30 @@ const questions = [
         answers: ["Lisboa", "Porto", "Coimbra", "Faro"],
         correctAnswer: "Lisboa"
     }
-];
+];*/
+
+let questions = [];
+
+const myHeaders = new Headers();
+myHeaders.append("apikey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlycWpzaGV3YmxyamtkeWNucnVtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg2OTcxMjQsImV4cCI6MjA1NDI3MzEyNH0.e9nmKlCvknA98Ka4DBDWOQRtjuaw0ZOzPq2hdyPxMzg");
+
+const requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow"
+};
+
+fetch("https://irqjshewblrjkdycnrum.supabase.co/rest/v1/questions", requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+        // Podriamos desordenar el orden en el que salen las preguntas así: 
+        //questions = result.sort(() => Math.random() - 0.5);
+        questions = result;
+        // Ejecutamos la funcion por primera vez para que imprima la primera pregunta al abrir la pagina
+        printQuestion();
+        intervalID = setInterval(countdown, 1000)
+    })
+    .catch((error) => console.error(error));
 
 // Variable de pregunta actual inicializada en 0
 let currentQuestion = 0;
@@ -37,7 +60,7 @@ let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score
 // Variables de tiempo para la cuenta atrás
 const totalTime = 30;
 let timer = 30;
-let intervalID = setInterval(countdown, 1000)
+let intervalID
 
 // Constantes para título de la pregunta y para el <div></div> en el que se van a pintar los botones de respuesta
 const title = document.getElementById("question");
@@ -59,7 +82,7 @@ function printQuestion() {
     // De la pregunta actual, se generan los botones de respuesta
     let questionAnswers = questions[currentQuestion].answers;
 
-    // Desordenamos las respuestas para que no estén en el mismo orden
+    // Desordenamos las respuestas para que no estén en el mismo orden 
     questionAnswers.sort(() => Math.random() - 0.5);
 
     // Antes de borrar las nuevas respuestas, se borra el contenido del div (para que no se acumulen los botones de respuesta de la pregunta anterior)
